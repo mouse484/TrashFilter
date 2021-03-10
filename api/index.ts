@@ -1,8 +1,8 @@
 import { NowRequest, NowResponse } from '@vercel/node';
 import axios from 'axios';
 
-const bad = (response: NowResponse) => {
-  response.status(400).send('Bad Request');
+const bad = (response: NowResponse, arg?: string) => {
+  response.status(400).send('Bad Request' + arg);
 };
 
 export default async (
@@ -10,13 +10,14 @@ export default async (
   response: NowResponse
 ): Promise<void> => {
   const { url } = request.query as { url: string };
+  const Url = new URL(url)
   if (url) {
-    const res = await axios.get<string>(url).catch((err) => {
-      console.log(err);
-      bad(response);
-    });
+    const res = await axios(Url.pathname, { baseURL: Url.origin, proxy: false }).catch((err) => {
+      bad(response, url);
+      console.error(err)
+    })
     if (res) {
-      const dates = res.data.split('\n');
+      const dates = res.data.split('\n') as string[]
       const date = dates
         .flatMap((date) => {
           return [date, `google.*##.g:has(a[href*="${date}"])`];
