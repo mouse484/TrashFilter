@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "strict": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "declarationDir": "dist/type",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "include": ["api/**/*.ts"]
+}
