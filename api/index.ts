@@ -10,17 +10,23 @@ export default async (
   response: NowResponse
 ): Promise<void> => {
   const { url } = request.query as { url: string };
-  const Url = new URL(url)
+  const Url = new URL(url);
   if (url) {
-    const res = await axios(Url.pathname, { baseURL: Url.origin, proxy: false }).catch((err) => {
+    const res = await axios(Url.pathname, {
+      baseURL: Url.origin,
+      proxy: false,
+    }).catch((err) => {
       bad(response, url);
-      console.error(err)
-    })
+      console.error(err);
+    });
     if (res) {
-      const dates = res.data.split('\n') as string[]
+      const dates = res.data.split('\n') as string[];
       const date = dates
         .flatMap((date) => {
-          return [date, `google.*##.g:has(a[href*="${date}"])`];
+          return [
+            date.includes('/') ? `${date}$document` : date,
+            `google.*##.g:has(a[href*="${date}"])`,
+          ];
         })
         .join('\n');
       response
