@@ -1,1 +1,3 @@
 example.com
+example.org
+https://github.com/mouse484/TrashSiteFilter/blob/main/public/test.txt
