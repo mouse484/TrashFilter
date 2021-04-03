@@ -1,6 +1,6 @@
-# TrashSiteFilter
+# Trash Filter
 
-Customizable site filters for uBlock Origin.
+Customizable trash filters for uBlock Origin.
 
 ## Usage
 
@@ -8,9 +8,9 @@ Customizable site filters for uBlock Origin.
 2. Import this Filter [uBlock Dashboard > Filter List > Custom > Import](https://github.com/gorhill/uBlock/wiki/Filter-lists-from-around-the-web)
 
 - Use the following URL:
-  `https://trash-site-filter.vercel.app/?url=<http://your-trash-site.list>`
+  `https://trash-filter.vercel.app/?url=<http://your-trash-site.list>`
 
-### How to make a TrashSiteList
+### How to make a TrashList
 
 1. Create a list of URLs separated by a new line, like [test.txt](https://github.com/mouse484/TrashSiteFilter/blob/main/public/test.txt)
 2. The URL can be a domain or a subdomain or a directory. (`test.example.com` / `example.com/test`)
