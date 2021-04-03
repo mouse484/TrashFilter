@@ -29,7 +29,7 @@ export const makeFilter = async (
         .send(
           [
             '! Homepage: https://github.com/mouse484/TrashSiteFilter',
-            `! Title: Trash Site Filter (use:${url}${type ? `- ${type}` : ''})`,
+            `! Title: Trash Site Filter (use:${url}${type ? ` - ${type} mode` : ''})`,
             date,
           ].join('\n')
         );
